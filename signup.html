@@ -1,220 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <title>Sign Up form</title>
     <style>
-        body {
-            padding: 0;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: white;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,600&display=swap');
 
-        .background {
-            background: url("/api/placeholder/1920")
-            hsl(0, 0%, 0%);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-blend-mode: darken;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: -1;
-            filter: blur(5px);
-            min-height: 800px;
-        }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 500px;
-            margin: 5vh auto;
-            background: transparent;
-            box-shadow: 0 0 15px rgb(255, 255, 255);
-            border-radius: 25px;
-        }
 
-        h2 {
-            font-size: 30px;
-        }
+:root{
+    font-size: 62.5%;
+}
 
-        form {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            width: 85%;
-        }
+body{
+    font-family: 'Poppins', sans-serif;
+    /* background: #eef0f4; */
+    background-image: url(login\ background.jpg);
+    background-size:cover;
+    background-position:center;
+}
 
-        .form-item {
-            display: flex;
-            width: 90%;
-            background: transparent;
-            margin: 10px auto;
-            border-radius: 15px;
-            align-items: center;
-            border-bottom: 1px solid rgb(82, 81, 81);
-        }
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
 
-        .form-item:hover {
-            border: 1px solid rgb(82, 81, 81);
-        }
+.cards .card{
+    position: relative;
+    width: 650px;
+    height: 650px;
+    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+    25px 35px 20px rgba(0, 0, 0, 0.05),
+    25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -10px -10px 15px rgba(233, 249, 255, 0.9),
+    10px 10px 20px rgba(237, 248, 250, 0.9);
+    transition: all 0.5s ease;  
+}
 
-        input {
-            background: transparent;
-            width: 80%;
-            height: 30px;
-            outline: none;
-            border: none;
-            margin: auto;
-            color: white;
-            font-size: 17px;
-        }
+.cards .card:hover{
+    border-radius: 51% 49% 65% 35% / 65% 61% 39% 35% ;
+}
 
-        span {
-            user-select: none;
-            margin: 5px;
-            color: rgb(172, 172, 172);
-            background: rgba(85, 81, 81, 0.637);
-            padding: 5px;
-            border-radius: 18px;
-        }
+.cards .card::before{
+    position: absolute;
+    content: '';
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    top: 15%;
+    left: 25%;
+    box-shadow: rgb(204, 219, 232) 2px 2px 2px 0px inset,
+    rgba(255, 255, 255, 0.5) -2px -2px 3px 1px inset,
+    rgb(204, 219, 232) 2px 2px 2px 0px;
+    border-radius: 50%;
+    opacity: 0.9;
+}
 
-        button[type="submit"] {
-            width: 180px;
-            font-size: 20px;
-            margin: 10px auto;
-            padding: 8px;
-            background: rgba(122, 123, 116, 0.72);
-            border: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 15px;
-        }
+.cards .card::after{
+    position: absolute;
+    content: '';
+    background: transparent;
+    width: 15px;
+    height: 15px;
+    top: 25%;
+    left: 32%;
+    box-shadow: rgb(204, 219, 232) 2px 2px 2px 0px inset,
+    rgba(255, 255, 255, 0.5) -2px -2px 3px 1px inset,
+    rgb(204, 219, 232) 2px 2px 2px 0px;
+    border-radius: 50%;
+    opacity: 0.8;
+}
 
-        button[type="submit"]:hover {
-            background: rgba(222, 236, 34, 0.678);
-        }
 
-        p:first-of-type {
-            margin: 0;
-        }
+.card:nth-child(1){
+    border-radius: 53% 47% 37% 63% / 41% 41% 59% 59%  ;
+}
 
-        .options {
-            display: flex;
-            margin: 10px auto;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
 
-        button {
-            font-size: 18px;
-            padding: 5px 16px;
-            margin: 5px 15px;
-            width: 180px;
-            background: transparent;
-            color: white;
-            cursor: pointer;
-            transition: all 0.7s ease;
-            border: 1px solid white;
-            border-radius: 15px;
-        }
+.cards .card .card__content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
+}
 
-        .fb:hover {
-            background: rgba(55, 53, 207, 0.637);
-            border: none;
-            box-shadow: 0 0 2px rgba(55, 53, 207, 0.637);
-        }
+.cards .card-1 .card__content button{
+    padding: 0.5rem 0.8rem;
+    text-align: center;
+    font-size: 1.4rem;
+    border: 1px solid aqua;
+    color: #ffecd1;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+}
 
-        .gl:hover {
-            background: rgba(207, 53, 53, 0.671);
-            border: none;
-            box-shadow: 0 0 2px rgba(207, 53, 53, 0.671);
-        }
+button:hover{
+    scale: 105%;
+}
 
-        p {
-            font-size: 18px;
-            margin: 5px;
-        }
-
-        a {
-            color: white;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: grey;
-        }
-
-        @media screen and (max-width: 550px) {
-            .container {
-                width: 90%;
-            }
-        }
+.login-box {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border-radius: 15px;
+    box-shadow: inset 20px 20px 20px rgb(167, 243, 255),
+    25px 35px 20px rgba(0, 0, 0, 0.05),
+    25px 30px 30px rgba(0, 0, 0, 0.05),
+    inset -10px -10px 15px rgba(176, 234, 255, 0.9),
+    10px 10px 20px rgba(177, 243, 255, 0.9);
+    transition: all 0.5s ease; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+  }
+  h2 {
+    font-size:2.5em;
+    color:#111;
+    text-align:center;
+  }
+  .input-box {
+    position:relative;
+    width:310px;
+    margin:30px 0;
+    border-bottom:1px solid black;
+  }
+  .input-box label {
+    position:absolute;
+    top:50%;
+    left:5px;
+    transform:translateY(-50%);
+    font-size:1.5em;
+    color:#111;
+    pointer-events:none;
+    transition:.5s;
+  }
+  .input-box input:focus  ~ label,
+  .input-box input:valid  ~ label {
+    top:-5px;
+  }
+  .input-box input {
+    width:100%;
+    height:50px;
+    background:transparent;
+    border:none;
+    outline:none;
+    font-size:1.5em;
+    color:#000;
+    padding:0 35px 0 5px;
+  }
+  .input-box .icon {
+    position:absolute;
+    right:8px;
+    top:50%;
+    color: #111;
+    transform: translateY(-50%);
+  }
+  .remember-forgot {
+    margin:-15px 0 15px;
+    font-size:1.2em;
+    color:#111;
+    display:flex;
+    justify-content:space-between;
+  }
+  .remember-forgot label input {
+    margin-right:3px;
+  }
+  .remember-forgot a {
+    color:var(--black-color);
+    text-decoration:none;
+  }
+  .remember-forgot a:hover {
+    text-decoration:underline;
+  }
+  .button {
+    width:100%;
+    height:40px;
+   
+    border:1px dashed black;
+    border-radius:40px;
+    cursor:pointer;
+    color:#66fcf1;
+    font-weight:500;
+  
+  } 
+  .button:hover{
+    background-color: rgba(177, 243, 255, 0.9); ;
+  }
+  .button a{
+    text-decoration: none;
+    font-size:1.3em;
+  }
+  
+    .input-box {
+      width:290px;
+    }
+  
     </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style1.css">
+    <title>Fancy Water Drop Login Page</title>
 </head>
 <body>
-    <div class="background"></div>
-    
+
     <div class="container">
-        <h2>Sign Up</h2>
-        <form action="">
-            <div class="form-item">
-                <span class="material-icons-outlined">
-                    person
-                </span>
-                <input type="text" name="fullname" id="fullname" placeholder="Full Name" required>
-            </div>
 
-            <div class="form-item">
-                <span class="material-icons-outlined">
-                    email
-                </span>
-                <input type="email" name="email" id="email" placeholder="Email Address" required>
-            </div>
+        <div class="cards">
+            <div class="card card-1">
+                <div class="card__content">
+                    <div class="login-box">
+                        <form action="">
+                          <h2>Sign-Up</h2>
 
-            <div class="form-item">
-                <span class="material-icons-outlined">
-                    account_circle
-                </span>
-                <input type="text" name="username" id="username" placeholder="Username" required>
-            </div>
+                          <div class="input-box">
+                            <span class="icon">
+                              <ion-icon name="mail"></ion-icon>
+                            </span>
+                            <input type="email" required>
+                            <label>Email</label>
+                          </div>
 
-            <div class="form-item">
-                <span class="material-icons-outlined">
-                    lock
-                </span>
-                <input type="password" name="password" id="password" placeholder="Password" required>
-            </div>
+                          <div class="input-box">
+                            <span class="icon">
+                              <ion-icon name="lock-closed"></ion-icon>
+                            </span>
+                            <input type="password" required>
+                            <label>Password</label>
+                            
+                          </div>
+                          <div class="input-box">
+                            <span class="icon">
+                              <ion-icon name="lock-closed"></ion-icon>
+                            </span>
+                          <input type="password" required>
+                            <label>Re-Enter the Password</label>
+                        
+                          </div>
+                          <div class="remember-forgot">
+                            <label><input type="checkbox"> Remember me</label>
+                            <a href="#">Forgot Password?</a>
+                          </div>
 
-            <div class="form-item">
-                <span class="material-icons-outlined">
-                    lock_clock
-                </span>
-                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
-            </div>
+                          <button type="submit" class="button"><a href="#">Sign in</a></button>
 
-            
+                          
+                        </form>
+                      </div>
+                </div>
+            </div> 
 
-            <p>Or Sign Up Using</p>
-
-            <div class="options">
-                <button class="fb">Facebook</button>
-                <button class="gl">Google</button>
-            </div>
-            <div>
-            <button type="submit"><a href="Menuicon.html">SIGN UP</a></button>
-            </div>
-
-            <p>Already have an account? <a href="index.html">Login here</a></p>
-        </form>
+        </div>
     </div>
-</body>
-</html>
